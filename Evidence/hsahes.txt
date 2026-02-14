@@ -1,0 +1,7 @@
+Project DICE-SHIM: Forensic Integrity Manifest
+Algorithm: SHA-256
+
+161df0cbdd70bfe507cb41bc2986d3474bf49755f5c97707b9751c9943b4845b  logdata.LiveData.tracev3      # Primary Hardware Breach Markers
+5fd83b08c38ef679e19ce971c3fc693939cb00391dfc651d119942b1ecfbae06  0000000000000421.tracev3      # OS Persistence (PID 124 Assertions)
+899a350f12e40cdfee1a02fa22e6a02797e59da67b44fd3b7c4416c9cd1a5fc1  0000000000000746.tracev3      # Data Siphon & Timing (WombatStream)
+f1df4e940f18d2ace60b7ec462136c6c8a5ca84bb6b53701ebd2abd4c43e6273  0000000000000124.tracev3      # Micro-Stress (IOMFBServer Stalls)
