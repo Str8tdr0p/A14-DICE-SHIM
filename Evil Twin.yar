@@ -2,7 +2,7 @@ rule Silicon_Rooted_Identity_Exfiltration_Stepped_On_Silicon {
     meta:
         description = "Detects hardware-rooted identity decoupling and exfiltration markers — Project Stepped-On Silicon"
         author = "Joseph Goydish II & Ace Gunner / Stepped-On Silicon Research"
-        reference = "Project DICE-SHIM: Hardware-Enforced Identity Decoupling"
+        reference = "Evil Twin : Hardware-Enforced Identity Decoupling"
         date = "2026-02-14"
         severity = "Critical"
         cvss_score = "10.0"
