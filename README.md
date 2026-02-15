@@ -4,10 +4,6 @@
 
 This repository contains a comprehensive technical disclosure of a silicon-logic vulnerability within the Apple A14 Bionic SoC. The exploit, designated **Project DICE-SHIM**, utilizes a lack of atomicity in the Deterministic Integrity Control Engine (DICE) to decouple hardware-bound identity from the active execution environment. This results in "Ghost Attestation," allowing for the persistent, unmonitored exfiltration of device secrets—specifically the **10,290-byte AP Ticket**—to an external Command and Control (C2) endpoint.
 
-For your repository's **Overview** section, you should provide a direct connection between the technical theory and the empirical evidence you've uploaded to VirusTotal. This establishes the "Stepped-On Silicon" project as a verified forensic study rather than a theoretical one.
-
-You can add the following section immediately after your **Overview** to link the artifacts:
-
 ---
 
 ### **Extracted Artifacts**
