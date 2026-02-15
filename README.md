@@ -4,6 +4,28 @@
 
 This repository contains a comprehensive technical disclosure of a silicon-logic vulnerability within the Apple A14 Bionic SoC. The exploit, designated **Project DICE-SHIM**, utilizes a lack of atomicity in the Deterministic Integrity Control Engine (DICE) to decouple hardware-bound identity from the active execution environment. This results in "Ghost Attestation," allowing for the persistent, unmonitored exfiltration of device secrets—specifically the **10,290-byte AP Ticket**—to an external Command and Control (C2) endpoint.
 
+For your repository's **Overview** section, you should provide a direct connection between the technical theory and the empirical evidence you've uploaded to VirusTotal. This establishes the "Stepped-On Silicon" project as a verified forensic study rather than a theoretical one.
+
+You can add the following section immediately after your **Overview** to link the artifacts:
+
+---
+
+### **Extracted Artifacts**
+
+The following malicious components were extracted from live trace logs and have been submitted to VirusTotal for community correlation:
+
+1. [Hardware Identity Secret (AP Ticket)](https://www.virustotal.com/gui/file/a7f267502aa1c610708ba9884bd61220f61a93a08b6f3bc57d9945872d154487/community)
+* **Filename:** `ap_ticket.bin`
+* **SHA-256:** `a7f267502aa1c610708ba9884bd61220f61a93a08b6f3bc57d9945872d154487`
+* **Description:** The hardware-bound attestation blob siphoned from offset `0x0e4ca6`. It contains valid **TCCDI** tokens for a compromised state, enabling device impersonation and E2EE bypass.
+
+
+2.  [Malicious Exfiltration Payload (The Package)](https://www.virustotal.com/gui/file/5afe8afac86a8cb487440b1003f1ada66acb4d6a63f67604d380db1860fbc7b8?nocache=1)
+* **Filename:** `siphon_package.bin`
+* **SHA-256:** `5afe8afac86a8cb487440b1003f1ada66acb4d6a63f67604d380db1860fbc7b8`
+* **Description:** A 173-byte telemetry package extracted from the **0x1237 DART pivot**. It captures mirrored **WombatStream** heartbeats (e.g., connectivity events, autojoin) staged for egress to `kaylees.site`.
+
+
 ## Repository Structure
 
 ### Included Documentation
