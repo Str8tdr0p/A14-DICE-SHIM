@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains a comprehensive technical disclosure of a silicon-logic vulnerability within the Apple A14 Bionic SoC. The exploit, designated **Project DICE-SHIM**, utilizes a lack of atomicity in the Deterministic Integrity Control Engine (DICE) to decouple hardware-bound identity from the active execution environment. This results in "Ghost Attestation," allowing for the persistent, unmonitored exfiltration of device secrets—specifically the **10,290-byte AP Ticket**—to an external Command and Control (C2) endpoint.
+This repository contains a comprehensive technical disclosure of a silicon-logic vulnerability within the Apple A14 Bionic SoC. The exploit, designated **Project DICE-SHIM**, utilizes a lack of atomicity in the Deterministic Integrity Control Engine (DICE) to decouple hardware-bound identity from the active execution environment. This allows the persistent, unmonitored exfiltration of device secrets—specifically the **10,290-byte AP Ticket**—to an external Command and Control (C2) endpoint.
 
 ---
 
@@ -13,7 +13,7 @@ The following malicious components were extracted from live trace logs and have 
 1. [Hardware Identity Secret (AP Ticket)](https://www.virustotal.com/gui/file/a7f267502aa1c610708ba9884bd61220f61a93a08b6f3bc57d9945872d154487/community)
 * **Filename:** `ap_ticket.bin`
 * **SHA-256:** `a7f267502aa1c610708ba9884bd61220f61a93a08b6f3bc57d9945872d154487`
-* **Description:** The hardware-bound attestation blob siphoned from offset `0x0e4ca6`. It contains valid **TCCDI** tokens for a compromised state, enabling device impersonation and E2EE bypass.
+* **Description:** The hardware-bound attestation blob siphoned from offset `0x0e4ca6`. It contains valid **TCCDI** tokens for a compromised state.
 
 
 2.  [Malicious Exfiltration Payload (The Package)](https://www.virustotal.com/gui/file/5afe8afac86a8cb487440b1003f1ada66acb4d6a63f67604d380db1860fbc7b8?nocache=1)
@@ -27,7 +27,7 @@ The following malicious components were extracted from live trace logs and have 
 ### Included Documentation
 
 1. `A14_DICE-SHIM.md` **Vulnerability Analysis: DICE-SHIM:**  A formal security report detailing the silicon-rooted identity bypass, covering the primary **CWE-1283** (Mutable Attestation) logic and the resulting architectural collapse.
-2. `A14_PoC.md` **Operational Guide: Identity Decoupling:** A step-by-step weaponization manual describing the early-boot DMA overflow, L1 instruction cache poisoning, and the **0x1237 DART pivot**.
+2. `A14_PoC.md` **Operational Guide: Identity Decoupling:** Technical walkthrough of the early-boot DMA overflow, L1 instruction cache poisoning, and the **0x1237 DART pivot**.
 3. `A14_DICE_Audit_Tool.py`**Forensic Audit Tool:** A multi-trace scanning utility designed to automate the detection of DICE-SHIM markers. It correlates microarchitectural violations, rootkit assertions, and network egress signals across the provided evidence suite.
 4. `Evidence/` **Forensic Evidence Suite:** A folder containing the four foundational .tracev3 files; LiveData, 0421, 746, and 124; alongside a hashes.txt manifest. The manifest provides SHA-256 checksums for each log to guarantee the mathematical integrity of the forensic artifacts.
 
